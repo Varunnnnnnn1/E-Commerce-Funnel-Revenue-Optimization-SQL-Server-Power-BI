@@ -1,0 +1,520 @@
+{
+  "n_sessions": 472871,
+  "n_orders": 32313,
+  "overall_conversion_rate": 0.0683336470200118,
+  "missing_landing_page": 0,
+  "split": {
+    "train_period": "2012-03-19 to 2014-09-30",
+    "test_period": "2014-10-01 to 2015-03-19",
+    "train_sessions": 332300,
+    "test_sessions": 140571,
+    "train_conversion_rate": 0.06315076737887451,
+    "test_conversion_rate": 0.0805856115414986,
+    "test_days": 170,
+    "test_categories_unseen_in_train": {}
+  },
+  "metrics": [
+    {
+      "model": "Logistic regression",
+      "roc_auc": 0.6087059803881455,
+      "pr_auc": 0.10415783007936236,
+      "top_decile_conversion_rate": 0.11132451273296344,
+      "top_decile_lift": 1.3814440394937681,
+      "top_decile_share_of_orders": 0.1381532485875706,
+      "mean_raw_predicted": 0.5349060756497875,
+      "mean_corrected_predicted": 0.08054968212966787,
+      "brier_corrected": 0.07313447653174222
+    },
+    {
+      "model": "Gradient boosting (HistGB)",
+      "roc_auc": 0.6065569390982326,
+      "pr_auc": 0.10293112405188778,
+      "top_decile_conversion_rate": 0.10499359795134443,
+      "top_decile_lift": 1.3028826851711193,
+      "top_decile_share_of_orders": 0.13029661016949154,
+      "mean_raw_predicted": 0.5135356147918216,
+      "mean_corrected_predicted": 0.07326436435622803,
+      "brier_corrected": 0.07321436968574827
+    },
+    {
+      "model": "Baseline: segment rate (device x source x landing)",
+      "roc_auc": 0.601728629269653,
+      "pr_auc": 0.10081947990429674,
+      "top_decile_conversion_rate": 0.09994309290083939,
+      "top_decile_lift": 1.2402101440822646,
+      "top_decile_share_of_orders": 0.12402895480225988,
+      "mean_raw_predicted": 0.07590526498041097,
+      "mean_corrected_predicted": 0.07590526498041097,
+      "brier_corrected": 0.07317159057888259
+    }
+  ],
+  "pr_auc_random_baseline": 0.0805856115414986,
+  "brier_constant_baseline": 0.07439554454495628,
+  "calibration": {
+    "Logistic regression": {
+      "bin_mean_predicted": [
+        0.0291,
+        0.0334,
+        0.0378,
+        0.0683,
+        0.0914,
+        0.0985,
+        0.1037,
+        0.1084,
+        0.1142,
+        0.1208
+      ],
+      "bin_observed": [
+        0.0309,
+        0.0353,
+        0.0376,
+        0.0781,
+        0.1015,
+        0.1046,
+        0.1022,
+        0.0985,
+        0.1059,
+        0.1113
+      ]
+    },
+    "Gradient boosting": {
+      "bin_mean_predicted": [
+        0.0265,
+        0.0327,
+        0.037,
+        0.0654,
+        0.0807,
+        0.0871,
+        0.0931,
+        0.0982,
+        0.1035,
+        0.1087
+      ],
+      "bin_observed": [
+        0.0318,
+        0.0348,
+        0.0383,
+        0.0807,
+        0.1002,
+        0.1002,
+        0.1027,
+        0.1036,
+        0.1086,
+        0.105
+      ]
+    }
+  },
+  "ece": {
+    "Logistic regression": 0.005910000000000001,
+    "Gradient boosting": 0.008040000000000002
+  },
+  "lr_decile_table": [
+    {
+      "decile": 1,
+      "sessions": 14058,
+      "conv_rate": 0.1113,
+      "lift": 1.3814
+    },
+    {
+      "decile": 2,
+      "sessions": 14057,
+      "conv_rate": 0.1059,
+      "lift": 1.3136
+    },
+    {
+      "decile": 3,
+      "sessions": 14057,
+      "conv_rate": 0.099,
+      "lift": 1.2279
+    },
+    {
+      "decile": 4,
+      "sessions": 14057,
+      "conv_rate": 0.1018,
+      "lift": 1.2633
+    },
+    {
+      "decile": 5,
+      "sessions": 14057,
+      "conv_rate": 0.1046,
+      "lift": 1.2986
+    },
+    {
+      "decile": 6,
+      "sessions": 14057,
+      "conv_rate": 0.1015,
+      "lift": 1.2597
+    },
+    {
+      "decile": 7,
+      "sessions": 14057,
+      "conv_rate": 0.078,
+      "lift": 0.9675
+    },
+    {
+      "decile": 8,
+      "sessions": 14057,
+      "conv_rate": 0.0376,
+      "lift": 0.467
+    },
+    {
+      "decile": 9,
+      "sessions": 14057,
+      "conv_rate": 0.0352,
+      "lift": 0.437
+    },
+    {
+      "decile": 10,
+      "sessions": 14057,
+      "conv_rate": 0.0309,
+      "lift": 0.384
+    }
+  ],
+  "lr_reference_levels": {
+    "device": "desktop",
+    "traffic_source": "gsearch",
+    "campaign": "nonbrand",
+    "landing_page": "/home",
+    "repeat": "new",
+    "hour": "12",
+    "dow": "Mon",
+    "month": "01"
+  },
+  "lr_top_coefficients": [
+    {
+      "feature": "device_mobile",
+      "coef": -1.2284,
+      "odds_ratio": 0.2927
+    },
+    {
+      "feature": "landing_page_/lander-3",
+      "coef": 1.1913,
+      "odds_ratio": 3.2913
+    },
+    {
+      "feature": "landing_page_/lander-5",
+      "coef": 1.1662,
+      "odds_ratio": 3.2096
+    },
+    {
+      "feature": "campaign_brand",
+      "coef": 0.9874,
+      "odds_ratio": 2.6842
+    },
+    {
+      "feature": "landing_page_/lander-2",
+      "coef": 0.8523,
+      "odds_ratio": 2.3451
+    },
+    {
+      "feature": "campaign_pilot",
+      "coef": -0.8165,
+      "odds_ratio": 0.442
+    },
+    {
+      "feature": "landing_page_/lander-4",
+      "coef": 0.7052,
+      "odds_ratio": 2.0242
+    },
+    {
+      "feature": "traffic_source_socialbook",
+      "coef": -0.6318,
+      "odds_ratio": 0.5316
+    },
+    {
+      "feature": "campaign_none",
+      "coef": 0.6293,
+      "odds_ratio": 1.8762
+    },
+    {
+      "feature": "landing_page_/lander-1",
+      "coef": 0.4473,
+      "odds_ratio": 1.5641
+    },
+    {
+      "feature": "traffic_source_direct",
+      "coef": 0.3322,
+      "odds_ratio": 1.394
+    },
+    {
+      "feature": "traffic_source_organic",
+      "coef": 0.2971,
+      "odds_ratio": 1.3459
+    }
+  ],
+  "permutation_importance_pr_auc_drop": {
+    "Logistic regression": [
+      {
+        "feature": "device",
+        "pr_auc_drop": 0.0229,
+        "std": 0.0003
+      },
+      {
+        "feature": "campaign",
+        "pr_auc_drop": 0.0046,
+        "std": 0.0007
+      },
+      {
+        "feature": "landing_page",
+        "pr_auc_drop": 0.0033,
+        "std": 0.0006
+      },
+      {
+        "feature": "traffic_source",
+        "pr_auc_drop": 0.0029,
+        "std": 0.0006
+      },
+      {
+        "feature": "month",
+        "pr_auc_drop": 0.0012,
+        "std": 0.0004
+      },
+      {
+        "feature": "repeat",
+        "pr_auc_drop": 0.001,
+        "std": 0.0003
+      },
+      {
+        "feature": "hour",
+        "pr_auc_drop": 0.0005,
+        "std": 0.0005
+      },
+      {
+        "feature": "dow",
+        "pr_auc_drop": -0.0001,
+        "std": 0.0003
+      }
+    ],
+    "Gradient boosting": [
+      {
+        "feature": "device",
+        "pr_auc_drop": 0.0128,
+        "std": 0.0003
+      },
+      {
+        "feature": "campaign",
+        "pr_auc_drop": 0.0018,
+        "std": 0.0003
+      },
+      {
+        "feature": "landing_page",
+        "pr_auc_drop": 0.0017,
+        "std": 0.0005
+      },
+      {
+        "feature": "repeat",
+        "pr_auc_drop": 0.0007,
+        "std": 0.0002
+      },
+      {
+        "feature": "traffic_source",
+        "pr_auc_drop": 0.0003,
+        "std": 0.0003
+      },
+      {
+        "feature": "month",
+        "pr_auc_drop": -0.0001,
+        "std": 0.0005
+      },
+      {
+        "feature": "dow",
+        "pr_auc_drop": -0.0002,
+        "std": 0.0002
+      },
+      {
+        "feature": "hour",
+        "pr_auc_drop": -0.0004,
+        "std": 0.0007
+      }
+    ]
+  },
+  "segments_test": [
+    {
+      "device": "desktop",
+      "landing_page": "/lander-5",
+      "traffic_source": "gsearch",
+      "sessions": 48189,
+      "observed_cr": 0.1037,
+      "predicted_cr_lr": 0.1107,
+      "predicted_cr_gb": 0.0968
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/lander-3",
+      "traffic_source": "gsearch",
+      "sessions": 23601,
+      "observed_cr": 0.0361,
+      "predicted_cr_lr": 0.0356,
+      "predicted_cr_gb": 0.0342
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/lander-5",
+      "traffic_source": "bsearch",
+      "sessions": 11655,
+      "observed_cr": 0.0931,
+      "predicted_cr_lr": 0.1016,
+      "predicted_cr_gb": 0.0893
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/home",
+      "traffic_source": "organic",
+      "sessions": 10063,
+      "observed_cr": 0.1068,
+      "predicted_cr_lr": 0.0951,
+      "predicted_cr_gb": 0.0909
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/home",
+      "traffic_source": "direct",
+      "sessions": 8174,
+      "observed_cr": 0.1064,
+      "predicted_cr_lr": 0.0987,
+      "predicted_cr_gb": 0.0912
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/home",
+      "traffic_source": "gsearch",
+      "sessions": 7194,
+      "observed_cr": 0.1119,
+      "predicted_cr_lr": 0.1003,
+      "predicted_cr_gb": 0.0924
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/home",
+      "traffic_source": "direct",
+      "sessions": 6064,
+      "observed_cr": 0.0353,
+      "predicted_cr_lr": 0.0307,
+      "predicted_cr_gb": 0.0314
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/home",
+      "traffic_source": "organic",
+      "sessions": 5447,
+      "observed_cr": 0.0312,
+      "predicted_cr_lr": 0.0297,
+      "predicted_cr_gb": 0.0282
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/lander-2",
+      "traffic_source": "gsearch",
+      "sessions": 4877,
+      "observed_cr": 0.0867,
+      "predicted_cr_lr": 0.0757,
+      "predicted_cr_gb": 0.0792
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/home",
+      "traffic_source": "gsearch",
+      "sessions": 4840,
+      "observed_cr": 0.0314,
+      "predicted_cr_lr": 0.0316,
+      "predicted_cr_gb": 0.0286
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/lander-2",
+      "traffic_source": "socialbook",
+      "sessions": 4323,
+      "observed_cr": 0.052,
+      "predicted_cr_lr": 0.0508,
+      "predicted_cr_gb": 0.0499
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/home",
+      "traffic_source": "bsearch",
+      "sessions": 2466,
+      "observed_cr": 0.1115,
+      "predicted_cr_lr": 0.0918,
+      "predicted_cr_gb": 0.0868
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/lander-3",
+      "traffic_source": "bsearch",
+      "sessions": 2125,
+      "observed_cr": 0.0339,
+      "predicted_cr_lr": 0.0323,
+      "predicted_cr_gb": 0.034
+    },
+    {
+      "device": "desktop",
+      "landing_page": "/lander-2",
+      "traffic_source": "bsearch",
+      "sessions": 1176,
+      "observed_cr": 0.091,
+      "predicted_cr_lr": 0.0692,
+      "predicted_cr_gb": 0.0673
+    },
+    {
+      "device": "mobile",
+      "landing_page": "/home",
+      "traffic_source": "bsearch",
+      "sessions": 377,
+      "observed_cr": 0.0133,
+      "predicted_cr_lr": 0.0288,
+      "predicted_cr_gb": 0.0313
+    }
+  ],
+  "revenue": {
+    "aov_test_window": 63.31810822740113,
+    "intercept_shift": 0.000492729125521449,
+    "best_lander_by_device": {
+      "desktop": "/lander-5",
+      "mobile": "/lander-3"
+    },
+    "mobile_fix": {
+      "releveled": {
+        "extra_orders": 3004.0474701424914,
+        "extra_revenue": 190210.60283473285,
+        "extra_revenue_annualised": 408393.3531451617
+      },
+      "model_as_is": {
+        "extra_orders": 3002.7735558773325,
+        "extra_revenue": 190129.9409934191,
+        "extra_revenue_annualised": 408220.16742704686
+      },
+      "sessions_affected": 42454
+    },
+    "landing_page_fix": {
+      "releveled": {
+        "extra_orders": 225.14446979101882,
+        "extra_revenue": 14255.721905028575,
+        "extra_revenue_annualised": 30607.873501973118
+      },
+      "model_as_is": {
+        "extra_orders": 225.05082983063778,
+        "extra_revenue": 14249.792799882758,
+        "extra_revenue_annualised": 30595.14336445416
+      },
+      "sessions_affected": 10376
+    },
+    "mobile_fix_gbm_releveled_extra_orders": 2862.806383365433,
+    "mobile_fix_gbm_releveled_extra_revenue": 181267.4844160273,
+    "mobile_vs_landing_ratio_releveled": 13.342754867267564
+  },
+  "reconciliation": {
+    "sql_mobile_sessions_gsearch_nonbrand": 87551,
+    "desktop_cr_gsearch_nonbrand": 0.0821757064897133,
+    "mobile_cr_gsearch_nonbrand": 0.03181003072494889,
+    "sql_method_reproduced_usd": 282404.50560000003,
+    "sql_method_with_actual_aov_usd": 264537.03730300727,
+    "actual_aov_all_orders": 59.99163649305233,
+    "naive_gap_test_window_all_mobile_usd": 177364.41680936585,
+    "mr_fuzzy_page_sessions": 162525,
+    "cart_sessions": 94953,
+    "cart_to_order_rate": 0.3403052036270576,
+    "funnel_5pp_extra_carts": 8126.25,
+    "funnel_5pp_revenue_if_carts_convert_at_observed_rate_usd": 165901.18117318567,
+    "funnel_5pp_revenue_if_every_extra_cart_orders_usd": 487507.03605166654
+  }
+}
